@@ -1,0 +1,1 @@
+0 0 * * * ~/aws/access/ssh-22/allow-ad/
