@@ -5,7 +5,7 @@ today=`date +"%d-%m-%Y","%T"`
 logfile="/awslog/ec2-access.log"
 
 # Grab all Security Groups IDs for DISALLOW action and export the IDs to a text file
-sudo aws ec2 describe-security-groups --filters Name=tag:bash-disallowall,Values=13-00 Name=tag:bash-profile,Values=wd --query SecurityGroups[].[GroupId] --output text > ~/tmp/disallowall_wd_info.txt 2>&1
+sudo aws ec2 describe-security-groups --filters Name=tag:close-allports-time,Values=13-00 Name=tag:bash-profile,Values=wd --query SecurityGroups[].[GroupId] --output text > ~/tmp/disallowall_wd_info.txt 2>&1
 
 # Take list of changing security groups
 for group_id in $(cat ~/tmp/disallowall_wd_info.txt)

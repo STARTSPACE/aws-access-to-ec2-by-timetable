@@ -5,7 +5,7 @@ today=`date +"%d-%m-%Y","%T"`
 logfile="/awslog/ec2-access.log"
 
 # Grab all Security Groups IDs for DISALLOW action and export the IDs to a text file
-sudo aws ec2 describe-security-groups --filters Name=tag:bash-disallowhttp,Values=10-00 Name=tag:bash-profile,Values=ad --query SecurityGroups[].[GroupId] --output text > ~/tmp/disallowhttp_ad_info.txt 2>&1
+sudo aws ec2 describe-security-groups --filters Name=tag:close-http-time,Values=10-00 Name=tag:bash-profile,Values=ad --query SecurityGroups[].[GroupId] --output text > ~/tmp/disallowhttp_ad_info.txt 2>&1
 
 # Take list of changing security groups
 for group_id in $(cat ~/tmp/disallowhttp_ad_info.txt)
